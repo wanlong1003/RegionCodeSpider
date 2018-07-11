@@ -5,7 +5,7 @@ import pymysql.cursors
 
 class MysqlHandler(object):
     def __init__(self):
-        self.db = pymysql.connect(host="192.168.1.250", user="root", passwd="!QAZ@WSX3edc4rfv", db="qh", charset="utf8", cursorclass=pymysql.cursors.DictCursor)
+        self.db = pymysql.connect(host="localhost", user="root", passwd="root123", db="qh", charset="utf8", cursorclass=pymysql.cursors.DictCursor)
 
     def insert(self, code, name, type):
         try:
