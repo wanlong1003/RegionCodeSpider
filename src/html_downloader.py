@@ -22,7 +22,7 @@ class HtmlDownloader(object):
                     return self.download(url)
                 else:
                     return response.read()
-        except urllib.error.HTTPError as e:
+        except Exception as e:
             print(e)
             time.sleep(5)
             return self.download(url)
