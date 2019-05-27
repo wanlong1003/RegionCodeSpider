@@ -37,8 +37,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql_handler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysql_handler.py">
+      <file leaf-file-name="postgres_handler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/postgres_handler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.65686274">
               <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
@@ -83,9 +83,9 @@
       <list>
         <option value="$PROJECT_DIR$/spider_main.py" />
         <option value="$PROJECT_DIR$/html_downloader.py" />
-        <option value="$USER_HOME$/Desktop/mysql_handler.py" />
+        <option value="$USER_HOME$/Desktop/postgres_handler.py" />
         <option value="$PROJECT_DIR$/html_parser.py" />
-        <option value="$PROJECT_DIR$/mysql_handler.py" />
+        <option value="$PROJECT_DIR$/postgres_handler.py" />
       </list>
     </option>
   </component>
@@ -428,7 +428,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql_handler.py">
+    <entry file="file://$PROJECT_DIR$/postgres_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
@@ -461,7 +461,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../WxSpider/mysql_handler.py">
+    <entry file="file://$PROJECT_DIR$/../WxSpider/postgres_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -514,7 +514,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql_handler.py">
+    <entry file="file://$PROJECT_DIR$/postgres_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65686274">
           <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />

@@ -57,8 +57,8 @@ class HtmlParser(object):
         soup = BeautifulSoup(html_content, 'html.parser', from_encoding='utf-8')
         url_trs = soup.find_all('tr', 'villagetr')
         #2017年 360124200210 220 新和村委会 数据中包含俩个'\n'，需要单独处理
-        url_trs.remove('\n')
-        url_trs.remove('\n')
+        # url_trs.remove('\n')
+        # url_trs.remove('\n')
         urls = [(tr.contents[2].get_text(),
                  tr.contents[0].get_text(),
                  tr.contents[1].get_text())

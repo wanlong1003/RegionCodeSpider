@@ -1,6 +1,7 @@
 # !/usr /bin/env  python3
 # -*- coding: utf-8    -*-
-from mysql_handler import MysqlHandler
+
+from postgres_handler import PostgresHandler
 from html_downloader import HtmlDownloader
 from html_parser import HtmlParser
 import traceback
@@ -10,11 +11,11 @@ import time
 
 class CodeSpider(object):
     def __init__(self):
-        self.mysql_handler = MysqlHandler()
+        self.db_handler = PostgresHandler()
         self.html_downloader = HtmlDownloader()
         self.html_parser = HtmlParser()
-        self.root_url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/index.html'
-        self.split_url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/'
+        self.root_url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018/index.html'
+        self.split_url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018/'
         self.province_url_list = []
         self.city_url_list = []
         self.county_url_list = []
@@ -31,21 +32,21 @@ class CodeSpider(object):
                 #if province_code != '36':
                 #    continue
                 print(province_name, province_code, province_url)
-                self.mysql_handler.create(province_code)
-                self.mysql_handler.insert(province_code,province_code,province_name,"")
+                self.db_handler.create(province_code)
+                self.db_handler.insert(province_code,province_code,province_name,"")
                 downloading_url = province_url
                 html_content = self.html_downloader.download(downloading_url)
                 self.city_url_list = self.html_parser.city_parser(html_content, self.split_url)
                 for city_name, city_url, city_code in self.city_url_list:
                     print(city_name, city_code, city_url)
-                    self.mysql_handler.insert(province_code,city_code,city_name,"")
+                    self.db_handler.insert(province_code,city_code,city_name,"")
                     if city_url is None:
                         continue
                     downloading_url = city_url
                     html_content = self.html_downloader.download(downloading_url)
                     self.county_url_list = self.html_parser.county_parser(html_content, self.split_url + province_code + "/")
                     for county_name, county_url, county_code in self.county_url_list:
-                        self.mysql_handler.insert(province_code,county_code, county_name,"")
+                        self.db_handler.insert(province_code,county_code, county_name,"")
                         if county_url is None:
                             continue
                         downloading_url = county_url
@@ -53,7 +54,7 @@ class CodeSpider(object):
                         self.town_url_list = self.html_parser.town_parser(html_content, os.path.dirname(downloading_url) + '/')
                         for town_name,town_url, town_code in self.town_url_list:                            
                             #print(town_name, town_url,town_code)
-                            self.mysql_handler.insert(province_code,town_code, town_name, "")
+                            self.db_handler.insert(province_code,town_code, town_name, "")
                             if town_url is None:
                                 continue
                             downloading_url = town_url
@@ -61,12 +62,12 @@ class CodeSpider(object):
                             self.village_url_list = self.html_parser.village_parser(html_content, os.path.dirname(downloading_url) + '/')
                             for village_name, village_code, village_type in self.village_url_list:
                                 #print(village_name, village_code, village_type)
-                                self.mysql_handler.insert(province_code,village_code, village_name, village_type)
+                                self.db_handler.insert(province_code,village_code, village_name, village_type)
                         time.sleep(1)
-                    time.sleep(10)
-                time.sleep(60)
+                    time.sleep(3)
+                time.sleep(3)
                 #访问速度太快会被服务器屏蔽
-            self.mysql_handler.close()
+            self.db_handler.close()
         except Exception as e:
             print('[ERROR] Craw Field!Url:', downloading_url, 'Info:', e)
             traceback.print_exc()
