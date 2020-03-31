@@ -1,5 +1,4 @@
-# spider_main
-统计局区划数据获取
+# 全国统计用区划代码和城乡划分代码
 
-# region_coordinates
-国家地名信息库获取区划的边界坐标数据
+## 2019
+http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/index.html
