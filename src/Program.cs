@@ -44,6 +44,11 @@ namespace RegionCodeSpider
             var provinces = await GetProvincesAsync(indexUrl);
             foreach (var province in provinces)
             {
+                //if (string.Compare(province.Code, "51") < 0)
+                //{
+                //    Console.WriteLine($"{province.Code}【{province.Name}】跳过");
+                //    continue;
+                //}
                 Console.WriteLine($"[{DateTime.Now.ToString("HH:mm:ss")}]【省】{province.Code} {province.Name} {province.Type} {province.Url}");
                 await SaveRegionAsync(province);
                 var cities = await GetCitiesAsync(province.Url);
